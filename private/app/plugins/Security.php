@@ -37,8 +37,8 @@ class Security extends Plugin
 
 			//Private area resources
 			$privateResources = array(
-                'room' => array('index', 'search', 'new', 'edit', 'save', 'create', 'delete'),
-                'module' => array('index', 'search', 'new', 'edit', 'save', 'create', 'delete')
+                'controller1' => array('index', 'search', 'new', 'edit', 'save', 'create', 'delete'),
+                'controller2' => array('index', 'search', 'new', 'edit', 'save', 'create', 'delete')
 			);
 			foreach ($privateResources as $resource => $actions) {
 				$acl->addResource(new Phalcon\Acl\Resource($resource), $actions);
