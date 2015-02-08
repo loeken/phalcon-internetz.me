@@ -1,0 +1,5 @@
+bower_cache
+bower_components
+node-v*
+node_modules
+node-latest.tar.gz
