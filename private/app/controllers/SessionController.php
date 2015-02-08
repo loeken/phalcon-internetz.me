@@ -39,7 +39,7 @@ class SessionController extends ControllerBase
                 return false;
             }
 
-            $user = new Users();
+            $user = new User();
             $user->username = $username;
             $user->password = sha1($password);
             $user->name = $name;
@@ -62,7 +62,7 @@ class SessionController extends ControllerBase
     /**
      * Register authenticated user into session data
      *
-     * @param Users $user
+     * @param User $user
      */
     private function _registerSession($user)
     {
@@ -84,7 +84,7 @@ class SessionController extends ControllerBase
             $password = $this->request->getPost('password');
             $password = sha1($password);
 
-            $user = Users::findFirst("email='$email' AND password='$password' AND active='Y'");
+            $user = User::findFirst("email='$email' AND password='$password' AND active='Y'");
             if ($user != false) {
                 $this->_registerSession($user);
                 $this->flash->success('Welcome ' . $user->name);
@@ -92,7 +92,7 @@ class SessionController extends ControllerBase
             }
 
             $username = $this->request->getPost('email', 'alphanum');
-            $user = Users::findFirst("username='$username' AND password='$password' AND active='Y'");
+            $user = User::findFirst("username='$username' AND password='$password' AND active='Y'");
             if ($user != false) {
                 $this->_registerSession($user);
                 $this->flash->success('Welcome ' . $user->name);
